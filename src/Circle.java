@@ -1,18 +1,16 @@
 import TurtleGraphics.Pen;
 
-public class Circle implements Shape{
+public class Circle extends AbstractShape{
 
-    private double xPos, yPos, radius;
+   protected double radius;
     
     public Circle(){
-        xPos=0;
-        yPos=0;
-        radius=1;
+     super();
+     radius=1;
     }
     
     public Circle(double x, double y, double r){
-        xPos=x;
-        yPos=y;
+        super();
         radius=r;
     }
     
@@ -20,7 +18,7 @@ public class Circle implements Shape{
             return Math.PI * radius * radius;
     }
 
-    @Override
+   
     public void draw(Pen p) {
         double side = 2.0 * Math.PI * radius / 120.0;
         p.up();
@@ -34,20 +32,6 @@ public class Circle implements Shape{
             p.turn(3);
         }
     }
-
-    public double getXPos() {
-        return xPos;
-    }
-
-    public double getYPos() {
-        return yPos;
-    }
-
-    public void move(double xLoc, double yLoc) {
-      xPos=xLoc;
-       yPos=yLoc;
-    }
-
     public void stretchBy(double factor) {
         radius *= factor;
     }
