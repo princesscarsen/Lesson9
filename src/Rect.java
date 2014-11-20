@@ -20,7 +20,9 @@ public class Rect extends AbstractShape{
     public double area() {
       return width * height;
     }
-
+    public double perimeter(){
+        return width*2+height*2;
+    }
    
     public void draw(Pen p) {
         p.up();
@@ -51,7 +53,6 @@ public class Rect extends AbstractShape{
     
     public String toString(){
         String str="This is a RECTANGLE\n";
-        str += "XLOC: " + xPos + "\tYLOC: " + yPos + "\n";
         str += "WIDTH: " + width + "\tHEIGHT: " + height + "\n";
         str +=  "\n" + super.toString();
         return str;

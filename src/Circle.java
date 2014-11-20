@@ -17,6 +17,9 @@ public class Circle extends AbstractShape{
       public double area() {
             return Math.PI * radius * radius;
     }
+      public double perimeter(){
+          return 2*radius*Math.PI;
+      }
 
    
     public void draw(Pen p) {
@@ -38,10 +41,13 @@ public class Circle extends AbstractShape{
     
     public String toString(){
         String str="This is a CIRCLE\n";
-        str += "XLOC: " + xPos + "\tYLOC: " + yPos + "\n";
+        
         str += "RADIUS: " + radius + "\n";
-        str += "AREA: " + area();
+        str +="\n "+super.toString();
         return str;
     }
+
     
-}
+    }
+    
+

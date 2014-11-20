@@ -17,6 +17,7 @@ abstract public class AbstractShape{
     abstract public double area();
     abstract public void draw(Pen p);
     abstract public void stretchBy(double fact);
+    abstract public double perimeter();
     
     public final double getxPos(){
         return xPos;
@@ -34,6 +35,7 @@ abstract public class AbstractShape{
     public String toString(){
         String str = "X-Y Position= " + xPos + ", " + yPos;
         str += "\nArea = " + area();
+        str += "\nPerimeter = "=perimeter();
         return str;
     }
 }
