@@ -25,15 +25,15 @@ public class ShapesGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         btncirc = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnwheel = new javax.swing.JButton();
         btnrect = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btntriangle = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnmove = new javax.swing.JButton();
+        btnresize = new javax.swing.JButton();
+        btnquit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtinfo = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -47,11 +47,26 @@ public class ShapesGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Wheel");
+        btnwheel.setText("Wheel");
+        btnwheel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnwheelActionPerformed(evt);
+            }
+        });
 
         btnrect.setText("Rectangle");
+        btnrect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrectActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Triangle");
+        btntriangle.setText("Triangle");
+        btntriangle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntriangleActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Showcard Gothic", 0, 12)); // NOI18N
         jLabel1.setText("Select A Shape");
@@ -61,11 +76,16 @@ public class ShapesGUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
-        jButton3.setText("Move");
+        btnmove.setText("Move");
 
-        jButton4.setText("Resize");
+        btnresize.setText("Resize");
+        btnresize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnresizeActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Quit");
+        btnquit.setText("Quit");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,24 +96,24 @@ public class ShapesGUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnquit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnmove, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(btnresize)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
+                .addComponent(btnmove)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btnresize)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(btnquit)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -121,11 +141,11 @@ public class ShapesGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnwheel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnrect)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btntriangle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -144,9 +164,9 @@ public class ShapesGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncirc)
-                    .addComponent(jButton1)
+                    .addComponent(btnwheel)
                     .addComponent(btnrect)
-                    .addComponent(jButton2))
+                    .addComponent(btntriangle))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -171,6 +191,32 @@ public class ShapesGUI extends javax.swing.JFrame {
         s.draw(p);
         txtinfo.setText(s.toString());
     }//GEN-LAST:event_btncircActionPerformed
+
+    private void btnrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrectActionPerformed
+        erase();
+        s=new Rect(0,0,50,50);
+        s.draw(p);
+        txtinfo.setText(s.toString());
+    }//GEN-LAST:event_btnrectActionPerformed
+
+    private void btntriangleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntriangleActionPerformed
+        erase();
+        s=new Triangle();
+        s.draw(p);
+        txtinfo.setText(s.toString());
+    }//GEN-LAST:event_btntriangleActionPerformed
+
+    private void btnresizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresizeActionPerformed
+        erase();
+        
+    }//GEN-LAST:event_btnresizeActionPerformed
+
+    private void btnwheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwheelActionPerformed
+        erase();
+        s=new Wheel(0,0,50,5);
+        s.draw(p);
+        txtinfo.setText(s.toString());
+    }//GEN-LAST:event_btnwheelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,12 +255,12 @@ public class ShapesGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncirc;
+    private javax.swing.JButton btnmove;
+    private javax.swing.JButton btnquit;
     private javax.swing.JButton btnrect;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnresize;
+    private javax.swing.JButton btntriangle;
+    private javax.swing.JButton btnwheel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -10,10 +10,11 @@ public class Triangle extends AbstractShape {
         x3=100;
         y3=0;
     }
+    
 
-    @Override
+    
     public double area() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return Math.abs((xPos*y2-x2*yPos) + (x2*y3-x3*y2) + (x3*yPos-xPos*y3))/2;
     }
 
     
@@ -27,14 +28,17 @@ public class Triangle extends AbstractShape {
     
     }
 
-    @Override
-    public void stretchBy(double fact) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void stretchBy(double factor) {
+    x2=(x2-xPos)*factor;
+    y2=(y2-yPos) * factor;
+    x3=(x3-xPos) * factor;
+    y3=(y3-yPos) *factor;
     }
 
-    @Override
+    
     public double perimeter() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return Math.sqrt((xPos-x2)*(xPos-x2)+(yPos-y2)*(yPos-y2));
     }
     
 }

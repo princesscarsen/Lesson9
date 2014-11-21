@@ -35,7 +35,7 @@ abstract public class AbstractShape{
     public String toString(){
         String str = "X-Y Position= " + xPos + ", " + yPos;
         str += "\nArea = " + area();
-        str += "\nPerimeter = "=perimeter();
+        str += "\nPerimeter = " + perimeter();
         return str;
     }
 }
