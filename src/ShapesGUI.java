@@ -77,6 +77,11 @@ public class ShapesGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
         btnmove.setText("Move");
+        btnmove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoveActionPerformed(evt);
+            }
+        });
 
         btnresize.setText("Resize");
         btnresize.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +91,11 @@ public class ShapesGUI extends javax.swing.JFrame {
         });
 
         btnquit.setText("Quit");
+        btnquit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnquitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,7 +204,7 @@ public class ShapesGUI extends javax.swing.JFrame {
 
     private void btnrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrectActionPerformed
         erase();
-        s=new Rect(0,0,50,50);
+        s=new Rect(0,0,100,50);
         s.draw(p);
         txtinfo.setText(s.toString());
     }//GEN-LAST:event_btnrectActionPerformed
@@ -207,7 +217,11 @@ public class ShapesGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btntriangleActionPerformed
 
     private void btnresizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresizeActionPerformed
+        double size=Double.parseDouble(JOptionPane.showInputDialog(this, "Enter new Size","0"));
         erase();
+        s.stretchBy(size);
+        s.draw(p);
+        txtinfo.setText(s.toString());
         
     }//GEN-LAST:event_btnresizeActionPerformed
 
@@ -217,6 +231,19 @@ public class ShapesGUI extends javax.swing.JFrame {
         s.draw(p);
         txtinfo.setText(s.toString());
     }//GEN-LAST:event_btnwheelActionPerformed
+
+    private void btnquitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnquitActionPerformed
+
+    private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
+        double x=Double.parseDouble(JOptionPane.showInputDialog(this, "Enter New X Co-ordinate", "0"));
+        double y=Double.parseDouble(JOptionPane.showInputDialog(this, "Enter New Y Co-ordinate", "0"));
+        erase();
+        s.move(x,y);
+        s.draw(p);
+        txtinfo.setText(s.toString());
+    }//GEN-LAST:event_btnmoveActionPerformed
 
     /**
      * @param args the command line arguments
