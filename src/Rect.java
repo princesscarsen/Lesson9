@@ -3,7 +3,7 @@ import TurtleGraphics.Pen;
 
 public class Rect extends AbstractShape{
     
-      private double xPos, yPos, width, height;
+      private double width, height;
     
     public Rect(){
        super();
@@ -38,13 +38,6 @@ public class Rect extends AbstractShape{
         p.move(height);
       }
 
-    public double getXPos() {
-       return xPos;
-    }
-
-    public double getYPos() {
-        return xPos;
-    }
     
     public void stretchBy(double factor) {
         height*=factor;

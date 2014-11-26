@@ -27,7 +27,7 @@ abstract public class AbstractShape{
         return yPos;
     }
     
-    public final void move(double xLoc, double yLoc){
+    public void move(double xLoc, double yLoc){
         xPos = xLoc;
         yPos = yLoc;
     }
