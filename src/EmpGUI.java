@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author cars5260
- */
+import javax.swing.JOptionPane;
+import java.text.NumberFormat;
 public class EmpGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EmpGUI
-     */
+    Employee emp[];
+    int size=0;
+    NumberFormat nf;
+    
     public EmpGUI() {
         initComponents();
+        emp=new Employee[10];
+        nf=NumberFormat.getCurrencyInstance();
     }
 
     /**
@@ -203,10 +198,37 @@ public class EmpGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-    String choice=buttonGroup1.getSelection().getActionCommand();
-    //put choice in table
-    tblemployee.setValueAt(choice,0,1);
-    tblemployee.setValueAt("You Chose",0,0);
+    Employee temp;
+    String nm,type;
+    int hours;
+    double rate;
+    try{
+        nm=txtname.getText();
+        hours=Integer.parseInt(txthours.getText());
+        rate=Double.parseDouble(txtrate.getText());
+        type=buttonGroup1.getSelection().getActionCommand();
+    }catch(Exception e)
+    {
+        JOptionPane.showMessageDialog(this,"Must Fill out form correctly");
+        return;
+    }
+    if(type.equals("FT"))
+        temp=new FullTimeEmployee();
+    else
+        temp=new PartTimeEmployee();
+    if(temp.setName(nm)&&temp.setHours(hours)&&temp.setRate(rate)){
+       emp[size]=temp;
+       tblemployee.setValueAt(temp.getName(),size,0);
+       tblemployee.setValueAt(nf.format(temp.getPay()),size,1);
+       size++;
+       lbltotal.setText(nf.format(Employee.getTotalPay()));
+       clearform();
+       return;//leave now
+       }
+    String error="ERROR\n=============\n";
+    if(temp.setName(nm)==false)error+="Name: "+Employee.getNameRules()+"\n";
+    if(temp.setHours(hours)==false)error+="Hours: "+Employee.getHoursRules()+"\n";
+    if(temp.setRate(rate)==false)error+="Rate: "+Employee.getRateRules()+"\n";
     }//GEN-LAST:event_btnaddActionPerformed
 
     /**
@@ -263,4 +285,11 @@ public class EmpGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtrate;
     // End of variables declaration//GEN-END:variables
+
+    public void clearform() {
+     txtname.setText("");
+     txtrate.setText("");
+     txthours.setText("");
+     buttonGroup1.clearSelection();
+    }
 }
